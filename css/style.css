@@ -3174,7 +3174,7 @@ h4,
   }
 
   .room-images__slider {
-    margin-bottom: 0 -0.9375rem 4.5rem -0.9375rem;
+    margin: 0 -0.9375rem 4.5rem -0.9375rem;
   }
 
   .room-images__slide img {
@@ -3912,7 +3912,7 @@ h4,
   }
 
   .room-images__slider {
-    margin-bottom: 2.25rem;
+    margin: 0 -0.9375rem 2.25rem -0.9375rem;
   }
 
   .room-images__slide img {

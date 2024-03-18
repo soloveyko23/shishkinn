@@ -1905,8 +1905,8 @@ h4,
 }
 
 .about._watcher-view .section-page__header {
-  gap: 2.25rem;
-  margin-bottom: 2.25rem;
+  gap: 2.25rem !important;
+  margin-bottom: 2.25rem !important;
 }
 
 .about._watcher-view .about__background {
@@ -3740,7 +3740,7 @@ h4,
   }
 
   .about__list {
-    display: none;
+    display: none !important;
   }
 
   .promotions._watcher-view .section-page__header {
@@ -3905,6 +3905,10 @@ h4,
     -webkit-column-count: 2;
        -moz-column-count: 2;
             column-count: 2;
+  }
+
+  .room-images {
+    margin: 3rem 0;
   }
 
   .room-images__slider {

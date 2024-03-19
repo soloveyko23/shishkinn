@@ -704,6 +704,12 @@ body::after {
   line-height: 120%;
 }
 
+.language-block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .language-block__button {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;

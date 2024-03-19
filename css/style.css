@@ -942,6 +942,33 @@ h4,
   opacity: 1;
 }
 
+.page-link-back a {
+  color: var(--brown);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  text-transform: none;
+}
+
+.page-link-back a::after {
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.page-link-back a:hover::after {
+  -webkit-transform: translateX(-0.3125rem) rotate(180deg);
+      -ms-transform: translateX(-0.3125rem) rotate(180deg);
+          transform: translateX(-0.3125rem) rotate(180deg);
+}
+
 .alert-block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2645,6 +2672,10 @@ h4,
   color: var(--white);
 }
 
+.faq._watcher-view .faq__body {
+  opacity: 1;
+}
+
 .handiness-room__image img {
   max-width: 100%;
   width: 100%;
@@ -2972,6 +3003,18 @@ h4,
     padding: 1rem 2.5rem 1rem 1.5rem;
   }
 
+  .page-link-back {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
   .header__menu.menu .menu__list-sub-menu .submenu__categories {
     position: absolute;
     top: 50%;
@@ -3072,6 +3115,10 @@ h4,
 
   .mobile-actions {
     display: none;
+  }
+
+  .page-link-back {
+    padding: 3rem 0;
   }
 
   .header__left {
@@ -3669,6 +3716,10 @@ h4,
     color: var(--brown);
   }
 
+  .page-link-back {
+    padding: 2.25rem 0;
+  }
+
   .header__left {
     gap: 1.25rem;
   }
@@ -3757,6 +3808,15 @@ h4,
 
   .about__list {
     display: none !important;
+  }
+
+  .about-room._watcher-view .section-page__header {
+    gap: 1.5rem !important;
+    margin-bottom: 0rem !important;
+  }
+
+  .rooms-page__container {
+    padding: 0;
   }
 
   .promotions._watcher-view .section-page__header {
@@ -3909,6 +3969,16 @@ h4,
     height: 30rem;
   }
 
+  .faq__body {
+    opacity: 0;
+    -webkit-transition: all 1s ease 0.2s;
+    transition: all 1s ease 0.2s;
+  }
+
+  .faq._watcher-view .section-page__header {
+    margin-bottom: 2rem !important;
+  }
+
   .handiness-room__image {
     margin: 0 -0.9375rem 2.25rem -0.9375rem;
   }
@@ -3976,6 +4046,11 @@ h4,
         flex-wrap: wrap;
   }
 
+  .page-link-back {
+    padding: 0 0.9375rem;
+    text-align: left;
+  }
+
   .header__menu.menu .menu__list-sub-menu .submenu__categories {
     display: none;
   }
@@ -4035,6 +4110,14 @@ h4,
 
   .about__background {
     height: 60%;
+  }
+
+  .rooms-page {
+    padding: 0;
+  }
+
+  .page-room {
+    padding: 2.25rem 0;
   }
 
   .restaurant__background {

@@ -4558,20 +4558,22 @@
                 },
                 on: {
                     init: function() {
-                        var activeIndex = this.activeIndex;
+                        var activeSlide = this.slides[this.activeIndex];
+                        var activeSlideIndex = activeSlide.getAttribute("data-swiper-slide-index");
                         var navigationButtons = document.querySelectorAll(paginationButtonSelector);
                         navigationButtons.forEach((function(button) {
-                            button.classList.remove("active");
+                            var buttonSlideIndex = button.getAttribute("data-slide");
+                            if (buttonSlideIndex === activeSlideIndex) button.classList.add("active"); else button.classList.remove("active");
                         }));
-                        navigationButtons[activeIndex].classList.add("active");
                     },
-                    slideChange: function() {
-                        var activeIndex = this.activeIndex;
+                    slideChangeTransitionEnd: function() {
+                        var activeSlide = this.slides[this.activeIndex];
+                        var activeSlideIndex = activeSlide.getAttribute("data-swiper-slide-index");
                         var navigationButtons = document.querySelectorAll(paginationButtonSelector);
                         navigationButtons.forEach((function(button) {
-                            button.classList.remove("active");
+                            var buttonSlideIndex = button.getAttribute("data-slide");
+                            if (buttonSlideIndex === activeSlideIndex) button.classList.add("active"); else button.classList.remove("active");
                         }));
-                        navigationButtons[activeIndex].classList.add("active");
                     }
                 }
             });

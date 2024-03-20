@@ -443,8 +443,8 @@
                 closeEsc: true,
                 bodyLock: true,
                 hashSettings: {
-                    location: true,
-                    goHash: true
+                    location: false,
+                    goHash: false
                 },
                 on: {
                     beforeOpen: function() {},
@@ -4452,6 +4452,32 @@
             goToHash ? gotoblock_gotoBlock(goToHash, true, 500, 20) : null;
         }
     }
+    function headerScroll() {
+        addWindowScrollEvent = true;
+        const header = document.querySelector("header.header");
+        const headerShow = header.hasAttribute("data-scroll-show");
+        const headerShowTimer = header.dataset.scrollShow ? header.dataset.scrollShow : 500;
+        const startPoint = header.dataset.scroll ? header.dataset.scroll : 1;
+        let scrollDirection = 0;
+        let timer;
+        document.addEventListener("windowScroll", (function(e) {
+            const scrollTop = window.scrollY;
+            clearTimeout(timer);
+            if (scrollTop >= startPoint) {
+                !header.classList.contains("_header-scroll") ? header.classList.add("_header-scroll") : null;
+                if (headerShow) {
+                    if (scrollTop > scrollDirection) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null; else !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                    timer = setTimeout((() => {
+                        !header.classList.contains("_header-show") ? header.classList.add("_header-show") : null;
+                    }), headerShowTimer);
+                }
+            } else {
+                header.classList.contains("_header-scroll") ? header.classList.remove("_header-scroll") : null;
+                if (headerShow) header.classList.contains("_header-show") ? header.classList.remove("_header-show") : null;
+            }
+            scrollDirection = scrollTop <= 0 ? 0 : scrollTop;
+        }));
+    }
     setTimeout((() => {
         if (addWindowScrollEvent) {
             let windowScroll = new Event("windowScroll");
@@ -4566,6 +4592,12 @@
             submenu.classList.add("open");
         }));
     }));
+    document.querySelector(".menu-sub__close").addEventListener("click", (() => {
+        document.documentElement.classList.remove("menu-open-submenu");
+        submenus.forEach((submenu => {
+            submenu.classList.remove("open");
+        }));
+    }));
     document.querySelectorAll(".link-arrow-back").forEach((item => {
         item.addEventListener("click", (function(event) {
             event.stopPropagation();
@@ -4586,11 +4618,12 @@
     };
     buttonToTop();
     closeAlertBlock();
-    window["FLS"] = true;
+    window["FLS"] = false;
     isWebp();
     addTouchClass();
     menuInit();
     spollers();
     showMore();
     pageNavigation();
+    headerScroll();
 })();

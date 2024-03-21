@@ -4900,6 +4900,326 @@
         }
         scrollToTopBtn.addEventListener("click", scrollToTop);
     };
+    document.addEventListener("DOMContentLoaded", (event => {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(".hero:not(.hero-small) .hero__background", {
+            scale: 1.5,
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "110% top",
+                scrub: 1.1,
+                id: "scrub"
+            }
+        });
+        gsap.from(".hero__content-bottom", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: 1
+        });
+        gsap.from(".hero__content-top__actions", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: 1
+        });
+        gsap.from(".hero__content-top p", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: 1
+        });
+        gsap.from(".about__content .text-main p", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".about",
+                start: "top 80%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.fromTo(".room-item", {
+            y: 50,
+            opacity: 0
+        }, {
+            y: 0,
+            opacity: 1,
+            delay: .3,
+            duration: .5,
+            stagger: .1,
+            scrollTrigger: {
+                trigger: ".room-item",
+                start: "top 80%",
+                end: "bottom 20%",
+                scrub: true
+            }
+        });
+        gsap.from(".about__content .item-about-1", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".about",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".about__content .item-about-2", {
+            y: 50,
+            opacity: 0,
+            delay: .55,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".about",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".about__content .item-about-3", {
+            y: 50,
+            opacity: 0,
+            delay: .7,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".about",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".promotions__slider", {
+            y: 50,
+            opacity: 0,
+            delay: .7,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".promotions",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".promotions__content .text-main p", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".promotions",
+                start: "top 80%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".restaurant__content .text-main p", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".restaurant",
+                start: "top 80%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".about-room__content .text-main p", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".about-room",
+                start: "top 80%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".handiness-room__content img", {
+            scale: 1.2,
+            delay: .3,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".handiness-room",
+                start: "top 80%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".restaurant__content .item-restaurant-1", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".restaurant",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".restaurant__content .item-restaurant-2", {
+            y: 50,
+            opacity: 0,
+            delay: .55,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".restaurant",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".restaurant__content .item-restaurant-3", {
+            y: 50,
+            opacity: 0,
+            delay: .7,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".restaurant",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".funs__content .text-main p", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".funs",
+                start: "top 80%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".funs__content", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".funs",
+                start: "top 80%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".faq__content", {
+            y: 50,
+            opacity: 0,
+            delay: .3,
+            duration: .5,
+            scrollTrigger: {
+                trigger: ".faq",
+                start: "top 80%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".popular-link", {
+            y: 80,
+            opacity: 0,
+            duration: .4,
+            stagger: .5,
+            scrollTrigger: {
+                trigger: ".popular",
+                start: "top top",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".handiness-room__list ul li", {
+            x: 80,
+            opacity: 0,
+            duration: .3,
+            stagger: .1,
+            scrollTrigger: {
+                trigger: ".handiness-room",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".handiness-room__list p", {
+            x: 80,
+            opacity: 0,
+            duration: .3,
+            stagger: .1,
+            scrollTrigger: {
+                trigger: ".handiness-room",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".room-privacy__content .spollers__item", {
+            y: 80,
+            opacity: 0,
+            duration: .3,
+            stagger: .1,
+            scrollTrigger: {
+                trigger: ".room-privacy",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".contacts-page__info", {
+            x: -80,
+            opacity: 0,
+            duration: .3,
+            stagger: .1,
+            scrollTrigger: {
+                trigger: ".contacts-page",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".contacts-page__map", {
+            x: 80,
+            opacity: 0,
+            duration: .3,
+            stagger: .1,
+            scrollTrigger: {
+                trigger: ".contacts-page",
+                start: "top 50%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.from(".page-link-back a", {
+            y: 80,
+            opacity: 0,
+            duration: .3,
+            stagger: .1,
+            scrollTrigger: {
+                trigger: ".page-link-back",
+                start: "top 30%",
+                end: "bottom 20%"
+            }
+        });
+        gsap.registerPlugin(ScrollTrigger);
+        function animateText(selector) {
+            const ourText = new SplitType(selector, {
+                types: "chars"
+            });
+            const chars = ourText.chars;
+            gsap.fromTo(chars, {
+                y: 100,
+                opacity: 0
+            }, {
+                y: 0,
+                opacity: 1,
+                stagger: .035,
+                duration: 1.1,
+                ease: "power4.out",
+                scrollTrigger: {
+                    trigger: selector,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none none"
+                }
+            });
+        }
+        animateText(".hero__content-top h1 .slide-up");
+        animateText(".about__content h2 .slide-up");
+        animateText(".promotions__content h2 .slide-up");
+        animateText(".restaurant__content h2");
+        animateText(".funs__content h2");
+        animateText(".popular__content h2");
+        animateText(".faq__content h2");
+        animateText(".about-room__content h2");
+        animateText(".handiness-room__list h3");
+    }));
     buttonToTop();
     closeAlertBlock();
     window["FLS"] = false;

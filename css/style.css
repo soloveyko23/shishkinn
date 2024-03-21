@@ -1168,26 +1168,41 @@ h4,
 }
 
 .header__menu.menu {
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  -webkit-transform: translateY(-100%);
-      -ms-transform: translateY(-100%);
-          transform: translateY(-100%);
-  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out 0.5s;
+  transition: all 0.5s ease-in-out 0.5s;
   z-index: 5;
   background-color: #383B3D;
   position: fixed;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
 }
 
 .menu-open .header__menu.menu {
-  opacity: 1;
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  left: 0;
+}
+
+.header__menu.menu .menu__list > ul > li.menu-item {
+  overflow: hidden;
+}
+
+.header__menu.menu .menu__list > ul > li.menu-item a {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.menu-open .header__menu.menu .menu__list > ul > li.menu-item a {
+  -webkit-transition: all 0.5s ease 0.5s;
+  transition: all 0.5s ease 0.5s;
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
 }
 
 .header__menu.menu .menu__container {
@@ -1197,6 +1212,10 @@ h4,
 .header__menu.menu .menu__content {
   overflow: auto;
   height: 100%;
+}
+
+.header__menu.menu .menu__list {
+  position: relative;
 }
 
 .header__menu.menu .menu__list-sub-menu .submenu {
@@ -1306,9 +1325,25 @@ h4,
 .header__menu.menu .menu__list-sub-menu .submenu .menu-item img {
   -o-object-fit: cover;
      object-fit: cover;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
   width: 100%;
+}
+
+.header__menu.menu .menu__list::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  height: 0;
+  top: 0;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.menu-open .header__menu.menu .menu__list::before {
+  -webkit-transition: all 0.4s ease 0.5s;
+  transition: all 0.4s ease 0.5s;
+  height: 100%;
 }
 
 .header__menu.menu .menu__list .menu-item:last-child {
@@ -1381,6 +1416,24 @@ h4,
   -webkit-box-flex: 0;
       -ms-flex: 0 1 10.25rem;
           flex: 0 1 10.25rem;
+}
+
+.header__menu.menu .menu__info {
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  opacity: 0;
+  -webkit-transform: translateY(10%);
+      -ms-transform: translateY(10%);
+          transform: translateY(10%);
+}
+
+.menu-open .header__menu.menu .menu__info {
+  -webkit-transition: all 0.5s ease 0.5s;
+  transition: all 0.5s ease 0.5s;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .header__menu.menu .menu__info p,
@@ -1711,12 +1764,6 @@ h4,
   min-height: 45rem;
 }
 
-.hero .slide-up {
-  display: block;
-  -webkit-animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
-          animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
-}
-
 @-webkit-keyframes slide-up {
   0% {
     -webkit-transform: translateY(400%);
@@ -1980,28 +2027,14 @@ h4,
           animation: ripple 1s alternate infinite linear;
 }
 
+span.slide-up {
+  display: block;
+}
+
 .hero-small {
   position: relative;
   overflow: hidden;
   min-height: 25rem;
-}
-
-.hero-small .slide-up {
-  display: block;
-  -webkit-animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
-          animation: slide-up 0.9s cubic-bezier(0.65, 0, 0.35, 1) both;
-}
-
-@keyframes slide-up {
-  0% {
-    -webkit-transform: translateY(400%);
-            transform: translateY(400%);
-  }
-
-  100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
 }
 
 .hero-small .hero__wrapper {
@@ -2800,6 +2833,10 @@ h4,
   opacity: 1;
 }
 
+.handiness-room__image {
+  overflow: hidden;
+}
+
 .handiness-room__image img {
   max-width: 100%;
   width: 100%;
@@ -3153,11 +3190,15 @@ h4,
     line-height: 398px;
     letter-spacing: 0%;
     text-align: center;
-    opacity: 0.3;
+    opacity: 0;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
   }
 
-  .header__menu.menu .menu__list-sub-menu .submenu__categories span {
-    position: sticky;
+  .menu-open-submenu .header__menu.menu .menu__list-sub-menu .submenu__categories {
+    -webkit-transition: all 0.5s ease 0.5s;
+    transition: all 0.5s ease 0.5s;
+    opacity: 0.3;
   }
 
   .header__menu.menu .menu__list-sub-menu .submenu .sub-menu {
@@ -3254,10 +3295,6 @@ h4,
     display: grid;
     -ms-grid-columns: 1.5fr 1fr;
     grid-template-columns: 1.5fr 1fr;
-  }
-
-  .header__menu.menu .menu__list {
-    border-right: solid rgba(255, 255, 255, 0.2);
   }
 
   .footer__contacts .line > a:first-child {
@@ -3458,8 +3495,8 @@ h4,
     gap: 2.8571428571vw;
   }
 
-  .header__menu.menu .menu__list {
-    border-right-width: 0.0595238095vw;
+  .header__menu.menu .menu__list::before {
+    width: 0.119047619vw;
   }
 
   .header__menu.menu .menu__list {
@@ -3885,18 +3922,6 @@ h4,
     font-size: 0.875rem;
   }
 
-  .header__menu.menu .menu__list {
-    border-bottom-width: 0.1302117243vw;
-  }
-
-  .header__menu.menu .menu__list {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  }
-
-  .header__menu.menu .menu__list {
-    padding-bottom: 1.5rem;
-  }
-
   .footer {
     z-index: 4;
   }
@@ -4223,6 +4248,10 @@ h4,
 
   .header__menu.menu .menu__list-sub-menu .submenu .menu-item img {
     height: 8.75rem;
+  }
+
+  .header__menu.menu .menu__list::before {
+    width: 0.4166840285vw;
   }
 
   .header__menu.menu .menu__list .menu-item {
@@ -4606,10 +4635,6 @@ h4,
   }
 
   .header__menu.menu .menu__list {
-    border-right-width: 0.100808484vw;
-  }
-
-  .header__menu.menu .menu__list {
     padding-right: 4.838807234vw;
   }
 }
@@ -4641,6 +4666,10 @@ h4,
 
   .header__menu.menu .menu__list-sub-menu .submenu .menu-item img {
     height: 28.2263755318vw;
+  }
+
+  .header__menu.menu .menu__list::before {
+    width: 0.2016169681vw;
   }
 
   .header__menu.menu .menu__list .menu-item {

@@ -1040,6 +1040,12 @@ h4,
   max-width: 105rem;
 }
 
+.menu-open .header__container {
+  -webkit-transform: initial !important;
+      -ms-transform: initial !important;
+          transform: initial !important;
+}
+
 .header__content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1178,6 +1184,14 @@ h4,
 
 .header__phones-tel a {
   color: var(--white);
+}
+
+.header__menu {
+  display: none;
+}
+
+.loaded .header__menu {
+  display: block;
 }
 
 .header__menu.menu {
